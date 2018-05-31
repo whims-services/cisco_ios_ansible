@@ -4,48 +4,47 @@
       host: "{{ inventory_hostname }}"
       username: "{{ mgmt_username }}"
       password: "{{ mgmt_password }}"
-  vars:
-    mgmt_username: "{{ vault_mgmt_username }}"
-    mgmt_password: "{{ vault_mgmt_password }}"
+  # vars:
+  #   mgmt_username: "{{ vault_mgmt_username }}"
+  #   mgmt_password: "{{ vault_mgmt_password }}"
 
-- name: deploy inside router configuration
-      ios_config:
-        provider: "{{ provider }}"
-        lines:
-          - "ip address {{ item.address }}"
-        after:
-          - no shutdown
-        parents: "interface {{ item.interface }}"
-        match: strict
-      with_items:
-        - { interface : Ethernet0/0, address : "{{ eth_00_ip }} {{ eth_00_mask }}" }
-        - { interface : Ethernet0/1, address : "{{ eth_01_ip }} {{ eth_01_mask }}" }
+- name: 1.0 | "{{ inventory_hostname }}" | Configure interface Loopback
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "loopback_interface.j2"
 
+- name: 1.1 | IOS "{{ inventory_hostname }}" | Configure interface Ethernet0/1
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "eth_01_interface.j2"
 
-    - name: 1.0 | IOS FR-BDX-RT-01 | Configure interface Loopback
-      ios_config:
-        lines:
-          - ip address 7.7.7.7 255.255.255.255
-        parents: interface loopback 7
-        provider: "{{ provider }}"
-        authorize: yes
+- name: 1.2 | IOS "{{ inventory_hostname }}" | Configure interface Ethernet0/2
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "eth_02_interface.j2"
 
-    - name: 1.1 | IOS FR-BDX-RT-01 | Configure interface Ethernet0/1
-      ios_config:
-        lines:
-          - description interco rtr-switch
-          - ip address 10.44.161.241 255.255.255.240
-          - no shutdown
-        parents: interface Ethernet0/1
-        provider: "{{ provider }}"
-        authorize: yes
+# - name: 1.2 | IOS "{{ inventory_hostname }}" | Configure interface Ethernet0/2
+#   ios_config:
+#     lines:
+#       - description WAN for DMVPN
+#       - ip address 169.254.0.3 255.255.255.0
+#       - no shutdown
+#     parents: interface Ethernet0/2
+#     provider: "{{ provider }}"
+#     authorize: yes
 
-    - name: 1.2 | IOS FR-BDX-RT-01 | Configure interface Ethernet0/2
-      ios_config:
-        lines:
-          - description WAN for DMVPN
-          - ip address 169.254.0.3 255.255.255.0
-          - no shutdown
-        parents: interface Ethernet0/2
-        provider: "{{ provider }}"
-        authorize: yes
+# - name: deploy inside router configuration
+#       ios_config:
+#         provider: "{{ provider }}"
+#         lines:
+#           - "ip address {{ item.address }}"
+#         after:
+#           - no shutdown
+#         parents: "interface {{ item.interface }}"
+#         match: strict
+#       with_items:
+#         - { interface : Ethernet0/0, address : "{{ eth_00_ip }} {{ eth_00_mask }}" }
+#         - { interface : Ethernet0/1, address : "{{ eth_01_ip }} {{ eth_01_mask }}" }

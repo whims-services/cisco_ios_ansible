@@ -1,0 +1,28 @@
+#-------------#
+# Credentials #
+#-------------#
+mgmt_username: cisco
+mgmt_password: cisco
+#--------------#
+# Loopback int #
+#--------------#
+loop_ip: 7.7.7.7
+loop_mask: 255.255.255.255
+loop_number: 7
+#-------------------#
+# Eth 0/1 interface #
+#-------------------#
+eth_01_id: 0/1
+eth_01_description: interco rtr-switch
+eth_01_ip: 10.44.161.241
+eth_01_mask: 255.255.255.240
+#-------------------#
+# Eth 0/2 interface #
+#-------------------#
+eth_02_id: 0/2
+eth_02_description: WAN for DMVPN
+eth_02_ip: 169.254.0.3
+eth_02_mask: 255.255.255.0
+#-------------------#
+# Eth 0/3 interface #
+#-------------------#
