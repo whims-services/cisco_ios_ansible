@@ -4,5 +4,5 @@
   gather_facts: no
   connection: local
   roles:
-    - 0_ios_router_network_interfaces
+   # - 0_ios_router_network_interfaces
     - 1_ios_router_ospf
