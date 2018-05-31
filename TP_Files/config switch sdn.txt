@@ -1,0 +1,127 @@
+hostname <switch's name>
+!
+username ansible secret 4 19VzQbwltTKZbAe82AXthJMWjUIkLItyYgAoxN2S21E
+!
+vtp mode transparent
+!
+no ip domain-lookup
+ip domain-name ansible.fr
+!
+crypto key generate rsa modulus 2048
+!
+ip ssh version 2
+ip ssh tiem-out 30
+ip ssh authentication-retries 3
+!
+ip routing
+!
+vlan 10
+ name LAN
+!
+vlan 20
+ name WIFI
+!
+vlan 30
+ name VOICE
+!
+vlan 40
+ name INTERCO
+!
+vlan 999
+ name BLACK-HOLE
+!
+vlan 1000
+ name NATIVE
+!
+interface loopback 8
+ ip address 8.8.8.8 255.255.255.255
+!
+interface Ethernet0/0
+ description Management
+ no switchport
+ ip address 192.168.0.9 255.255.255.0
+ no shutdown
+!
+interface Ethernet0/1
+ description Use by interco
+ switchport access vlan 40
+ switchport mode access
+ duplex auto
+ no shutdown
+!
+interface Vlan10
+ description Gateway vlan 10
+ ip address 10.44.161.1 255.255.255.128
+ no shutdown
+!
+interface Vlan20
+ description Gateway vlan 20
+ ip address 10.44.161.129 255.255.255.224
+ no shutdown
+!
+interface Vlan30
+ description Gateway vlan 30
+ ip address 10.44.161.161 255.255.255.224
+ no shutdown
+!
+interface Vlan40
+ description Interco Switch-Router
+ ip address 10.44.161.242 255.255.255.240
+ no shutdown
+!
+router ospf 1
+ router-id <w.x.y.z>
+ network 6.6.6.6 0.0.0.0 area 0
+ network 10.44.161.0 0.0.0.127 area 0
+ network 10.44.161.128 0.0.0.31 area 0
+ network 10.44.161.160 0.0.0.31 area 0
+ network 10.44.161.240 0.0.0.15 area 0
+!
+!
+no ip http server
+!
+!
+ip access-list standard ssh-access
+ permit 192.168.0.0 0.0.0.255
+!
+!
+!
+!
+control-plane
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ access-class ssh-access in
+ logging synchronous
+ login local
+ transport input ssh
+!
+end
+
+#################################################
+#						#
+#		EXPLICATION			#
+#						#
+#################################################
+Sur ce fichier se trouve la config "Type" qui doit �tre inject�e dans les routeurs!!!
+Ci-dessous sont les variables qui doivent changer en fonction du site
+
+Hostname = Je vous fournie la convention de nommage dans la semaine
+
+interface loopback X = mettre le num�ro du site. Son IP peut �tre = � X
+
+interface ethernet0/0 = ip de managment. Le r�seau 192.168.0.0/24 est attribu�
+192.168.0.X ou X = num�ro du site sachant que 192.168.0.1 est r�serv� pour ansible
+
+interface vlan X = ip addrese prend la premiere addresse du plan d'addressage sauf pour l'interco qui prendra la deuxi�me.
+
+---Config OSPF---
+router-id = je vous la communique dans la semaine

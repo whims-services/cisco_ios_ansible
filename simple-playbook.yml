@@ -1,0 +1,273 @@
+---
+- hosts: ios_router_bordeaux
+  gather_facts: no
+  connection: local
+
+  tasks:
+
+    - name: 0.0 | SYS | Definition du provider
+      set_fact:
+        provider:
+          host: "{{ inventory_hostname }}"
+          username: "{{ mgmt_username }}"
+          password: "{{ mgmt_password }}"
+      vars:
+        mgmt_username: "{{ vault_mgmt_username }}"
+        mgmt_password: "{{ vault_mgmt_password }}"
+
+    - name: 1.0 | IOS FR-BDX-RT-01 | Configure interface Loopback
+      ios_config:
+        lines:
+          - ip address 7.7.7.7 255.255.255.255
+        parents: interface loopback 7
+        provider: "{{ provider }}"
+        authorize: yes
+
+    - name: 1.1 | IOS FR-BDX-RT-01 | Configure interface Ethernet0/1
+      ios_config:
+        lines:
+          - description interco rtr-switch
+          - ip address 10.44.161.241 255.255.255.240
+          - no shutdown
+        parents: interface Ethernet0/1
+        provider: "{{ provider }}"
+        authorize: yes
+
+    - name: 1.2 | IOS FR-BDX-RT-01 | Configure interface Ethernet0/2
+      ios_config:
+        lines:
+          - description WAN for DMVPN
+          - ip address 169.254.0.3 255.255.255.0
+          - no shutdown
+        parents: interface Ethernet0/2
+        provider: "{{ provider }}"
+        authorize: yes
+    
+    - name: 1.3 | IOS FR-BDX-RT-01 | Configure IPsec
+      ios_config:
+        lines:
+          - crypto isakmp policy 5
+          - authentication pre-share
+          - group 2
+!
+crypto isakmp key dmvpnkey address 0.0.0.0 0.0.0.0
+!
+crypto ipsec transform-set dmvpnset esp-3des esp-sha-hmac
+!
+crypto ipsec profile dmvpnprof
+ set transform-set dmvpnset
+        parents: interface Ethernet0/2
+        provider: "{{ provider }}"
+        authorize: yes
+
+    - name: 1.4 | IOS FR-BDX-RT-01 | Configuration HUB DMVPN
+      ios_config:
+        lines:
+          - description MULTI-POINT GRE TUNNEL for BRANCHES
+          - bandwidth 1000
+          - ip address 172.16.0.1 255.255.255.0
+          - no ip redirects
+          - ip mtu 1416
+          - ip nhrp authentication dmvpn
+          - ip nhrp map multicast dynamic
+          - ip nhrp network-id 99
+          - ip nhrp holdtime 300
+          - no ip route-cache
+          - ip ospf network broadcast
+          - ip ospf priority 255
+          - delay 1000
+          - tunnel source e0/2
+          - tunnel mode gre multipoint
+          - tunnel key 100000
+          - tunnel protection ipsec profile dmvpnprof
+        parents: interface Tunnel1
+        provider: "{{ provider }}"
+        authorize: yes
+
+    - name: 1.4 | IOS R1 | Configuration SPOKE DMVPN 
+      ios_config:
+        lines:
+          - description HOST DYNAMIC TUNNEL
+          - bandwidth 1000
+          - ip address 172.16.0.4 255.255.255.0
+          - no ip redirects
+          - ip nhrp authentication dmvpn
+          - ip nhrp map multicast dynamic
+          - ip nhrp map 172.16.0.1 169.254.0.1
+          - ip nhrp map multicast 169.254.0.1
+          - ip nhrp network-id 99
+          - ip nhrp holdtime 300
+          - ip nhrp nhs 172.16.0.1
+          - no ip route-cache
+          - ip ospf network broadcast
+          - delay 1000
+          - tunnel source e0/2
+          - tunnel mode gre multipoint
+          - tunnel key 100000
+          - tunnel protection ipsec profile dmvpnprof
+        parents: interface Tunnel1
+        provider: "{{ provider }}"
+        authorize: yes
+
+    - name: 1.5 | IOS R8 | Configure OSPF
+      ios_config:
+        lines:
+          - router ospf 1
+          - router-id 8.8.8.8
+          - edistribute bgp 13 subnets
+          - network 8.8.8.8 0.0.0.0 area 0
+          - network 13.0.1.0 0.0.0.7 area 0
+        provider: "{{ provider }}"
+        authorize: yes
+
+    - name: 1.4 | IOS R8 | Configure BGP
+      ios_config:
+        lines:
+          - router bgp 13
+          - bgp log-neighbor-changes
+          - edistribute bgp 13 subnets
+          - neighbor 3.3.3.3 remote-as 13
+          - neighbor 13.1.0.1 remote-as 23
+        provider: "{{ provider }}"
+        authorize: yes
+
+- hosts: ios_switch_bx
+  gather_facts: no
+  connection: local
+
+  tasks:
+
+    - name: 2.0 | SYS | Definition du provider
+      set_fact:
+        provider:
+          host: "{{ inventory_hostname }}"
+          username: "{{ mgmt_username }}"
+          password: "{{ mgmt_password }}"
+      vars:
+        mgmt_username: "{{ vault_mgmt_username }}"
+        mgmt_password: "{{ vault_mgmt_password }}"
+
+    - name: 2.0 | IOS ER1 | Configure interface Loopback
+      ios_config:
+        lines:
+          - ip address 66.66.66.66 255.255.255.255
+          - no shutdown
+        parents: interface Loopback0
+        provider: "{{ provider }}"
+        authorize: yes
+
+    - name: 2.1 | IOS ER1 | Configure interface Ethernet0/0
+      ios_config:
+        lines:
+          - ip address 192.168.1.130 255.255.255.0
+          - no shutdown
+        parents: interface Ethernet0/0
+        provider: "{{ provider }}"
+        authorize: yes
+
+    - name: 2.2 | IOS ER1 | Configure interface Ethernet0/1
+      ios_config:
+        lines:
+          - ip address 13.1.0.1 255.255.255.252
+          - no shutdown
+        parents: interface Ethernet0/1
+        provider: "{{ provider }}"
+        authorize: yes
+
+    - name: 2.3 | IOS ER1 | Configure interface Ethernet0/2
+      ios_config:
+        lines:
+          - ip address 13.2.0.1 255.255.255.252
+          - no shutdown
+        parents: interface Ethernet0/2
+        provider: "{{ provider }}"
+        authorize: yes
+
+    - name: 2.4 | IOS ER1 | Configure interface Ethernet0/3
+      ios_config:
+        lines:
+          - ip address 13.10.0.1 255.255.255.252
+          - no shutdown
+        parents: interface Ethernet0/3
+        provider: "{{ provider }}"
+        authorize: yes
+
+    - name: 2.5 | IOS ER1 | Configure BGP
+      ios_config:
+        lines:
+          - router bgp 23
+          - bgp log-neighbor-changes
+          - network 13.1.0.0 mask 255.255.255.252
+          - network 13.2.0.0 mask 255.255.255.252
+          - network 13.10.0.0 mask 255.255.255.252
+          - network 66.66.66.66 mask 255.255.255.255
+          - neighbor 13.1.0.2 remote-as 13
+          - neighbor 13.2.0.2 remote-as 13
+          - neighbor 13.10.0.2 remote-as 33
+        provider: "{{ provider }}"
+        authorize: yes
+
+- hosts: ios_devices[2]
+  gather_facts: no
+  connection: local
+
+  tasks:
+
+    - name: 3.0 | SYS | Definition du provider
+      set_fact:
+        provider:
+          host: "{{ inventory_hostname }}"
+          username: "{{ mgmt_username }}"
+          password: "{{ mgmt_password }}"
+      vars:
+        mgmt_username: "{{ vault_mgmt_username }}"
+        mgmt_password: "{{ vault_mgmt_password }}"
+
+    - name: 3.0 | IOS ER2 | Configure interface Loopback
+      ios_config:
+        lines:
+          - ip address 66.66.66.66 255.255.255.255
+          - no shutdown
+        parents: interface Loopback0
+        provider: "{{ provider }}"
+        authorize: yes
+
+    - name: 3.1 | IOS ER2 | Configure interface Ethernet0/0
+      ios_config:
+        lines:
+          - ip address 13.10.0.2 255.255.255.252
+          - no shutdown
+        parents: interface Ethernet0/0
+        provider: "{{ provider }}"
+        authorize: yes
+
+    - name: 3.2 | IOS ER2 | Configure interface Ethernet0/1
+      ios_config:
+        lines:
+          - ip address 13.11.0.1 255.255.255.252
+          - no shutdown
+        parents: interface Ethernet0/1
+        provider: "{{ provider }}"
+        authorize: yes
+
+    - name: 3.3 | IOS ER2 | Configure interface Ethernet0/2
+      ios_config:
+        lines:
+          - ip address 192.168.1.129 255.255.255.0
+          - no shutdown
+        parents: interface Ethernet0/2
+        provider: "{{ provider }}"
+        authorize: yes
+
+    - name: 3.4 | IOS ER2 | Configure BGP
+      ios_config:
+        lines:
+          - router bgp 33
+          - bgp log-neighbor-changes
+          - network 13.10.0.0 mask 255.255.255.252
+          - network 13.11.0.0 mask 255.255.255.252
+          - network 20.20.20.20 mask 255.255.255.255
+          - neighbor 13.10.0.1 remote-as 23
+          - neighbor 13.11.0.2 remote-as 13
+        provider: "{{ provider }}"
+        authorize: yes
