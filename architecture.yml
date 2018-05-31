@@ -4,12 +4,4 @@
   gather_facts: no
   connection: local
   roles:
-    - 0_routeur_bx
-
-- hosts: ios_switch_bordeaux
-  roles:
-     - 1_ios_switch_bordeaux
-
-- hosts: nodes
-  roles:
-     - 9_join_swarm
+    - 0_ios_network_interfaces
