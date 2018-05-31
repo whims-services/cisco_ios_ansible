@@ -17,24 +17,13 @@
 #     authorize: yes
 # #    src: "loopback_interface.j2"
 
-- name: 1.1 | IOS {{ inventory_hostname }} | Configure interface Ethernet0/1
+- name: 1.1 | IOS {{ inventory_hostname }} | Configure interface Ethernet{{eth_01_id}}
   ios_config:
-    lines:
-      - description {{eth_01_description}}
-      - ip address {{eth_01_ip}} {{eth_01_mask}}
-      - no shutdown
-    parents: interface Ethernet{{eth_01_id}}
     provider: "{{ provider }}"
     authorize: yes
+    src: "eth_01_interface.j2"
 
-# - name: 1.1 | IOS "{{ inventory_hostname }}" | Configure interface Ethernet0/1
-#   ios_config:
-#     #parents: interface Ethernet{{eth_01_id}}
-#     provider: "{{ provider }}"
-#     src: "eth_01_interface.j2"
-#     authorize: yes
-
-- name: 1.2 | IOS "{{ inventory_hostname }}" | Configure interface Ethernet0/2
+- name: 1.2 | IOS {{ inventory_hostname }} | Configure interface Ethernet{{eth_02_id}}
   ios_config:
     provider: "{{ provider }}"
     authorize: yes
