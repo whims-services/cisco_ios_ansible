@@ -1,1 +1,4 @@
 vlan_number: 
+vlan_name_0:  
+vlan_state_on: present
+vlan_state_off: absent

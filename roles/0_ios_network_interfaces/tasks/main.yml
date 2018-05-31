@@ -8,12 +8,6 @@
   #   mgmt_username: "{{ vault_mgmt_username }}"
   #   mgmt_password: "{{ vault_mgmt_password }}"
 
-- name: 1.0 | {{ inventory_hostname }} | Configure interface Loopback {{loop_number_bdx}}
-  ios_config:
-    provider: "{{ provider }}"
-    authorize: yes
-    src: "loopback_interface_bdx.j2"
-
 - name: 1.1 | IOS {{ inventory_hostname }} | Configure interface Ethernet{{eth_01_id_bdx}}
   ios_config:
     provider: "{{ provider }}"
@@ -25,3 +19,9 @@
     provider: "{{ provider }}"
     authorize: yes
     src: "eth_02_interface_bdx.j2"
+
+- name: 1.0 | {{ inventory_hostname }} | Configure interface Loopback {{loop_number_bdx}}
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "loopback_interface_bdx.j2"
