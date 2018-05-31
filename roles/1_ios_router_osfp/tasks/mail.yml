@@ -2,10 +2,6 @@
 # Configuration ospf pour le routeur de bordeaux #
 #------------------------------------------------#
 - name: 1.5 | IOS {{ inventory_hostname }} | Configure OSPF
-  include_role:
-    name: 0_ios_router_network_interfaces
-  vars:
-    rolevar1: "{{loop_ip_bdx}}"
   ios_config:
     provider: "{{ provider }}"
     authorize: yes
