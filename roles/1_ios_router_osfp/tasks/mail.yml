@@ -3,6 +3,12 @@
 #------------------------------------------------#
 - name: 1.5 | IOS {{ inventory_hostname }} | Configure OSPF
   ios_config:
+    lines:
+      router ospf 1
+      router-id <w.x.y.z>
+      network 7.7.7.7 0.0.0.0 area 0
+      network 10.44.186.240 0.0.0.15 area 0
+      network 172.16.0.0 0.0.0.255 area 0
     provider: "{{ provider }}"
     authorize: yes
-    src: "ospf_setting_bdx.j2"
+    #src: "ospf_setting_bdx.j2"
