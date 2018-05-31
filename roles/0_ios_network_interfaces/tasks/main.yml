@@ -21,12 +21,14 @@
   ios_config:
     provider: "{{ provider }}"
     authorize: yes
+    enabled: False
     src: "eth_01_interface.j2"
 
 - name: 1.2 | IOS {{ inventory_hostname }} | Configure interface Ethernet{{eth_02_id}}
   ios_config:
     provider: "{{ provider }}"
     authorize: yes
+    enabled: True
     src: "eth_02_interface.j2"
 
 # - name: 1.2 | IOS "{{ inventory_hostname }}" | Configure interface Ethernet0/2
