@@ -1,3 +1,6 @@
+#-------------------------------------------------------#
+# Configuration des interfaces pour le site de bordeaux #
+#-------------------------------------------------------#
 - name: 0.0 | SYS | Definition du provider
   set_fact:
     provider:
@@ -5,8 +8,8 @@
       username: "{{ mgmt_username_bdx }}"
       password: "{{ mgmt_password_bdx }}"
   # vars:
-  #   mgmt_username: "{{ vault_mgmt_username }}"
-  #   mgmt_password: "{{ vault_mgmt_password }}"
+  #   mgmt_username_bdx: "{{ vault_mgmt_username }}"
+  #   mgmt_password_bdx: "{{ vault_mgmt_password }}"
 
 - name: 1.0 | {{ inventory_hostname }} | Configure interface Loopback {{loop_number_bdx}}
   ios_config:
