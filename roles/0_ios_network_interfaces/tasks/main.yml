@@ -19,10 +19,10 @@
 
 - name: 1.1 | IOS "{{ inventory_hostname }}" | Configure interface Ethernet0/1
   ios_config:
-    parents: interface Ethernet{{eth_01_id}}
+    #parents: interface Ethernet{{eth_01_id}}
     provider: "{{ provider }}"
-    authorize: yes
     src: "eth_01_interface.j2"
+    authorize: yes
 
 - name: 1.2 | IOS "{{ inventory_hostname }}" | Configure interface Ethernet0/2
   ios_config:
