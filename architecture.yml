@@ -1,8 +1,8 @@
 # Configuration ccnp
+#    - 0_ios_router_network_interfaces
 ---
 - hosts: ios_router_bordeaux
   gather_facts: no
   connection: local
   roles:
-#    - 0_ios_router_network_interfaces
     - 1_ios_router_ospf
