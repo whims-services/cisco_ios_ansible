@@ -8,14 +8,14 @@
   #   mgmt_username: "{{ vault_mgmt_username }}"
   #   mgmt_password: "{{ vault_mgmt_password }}"
 
-- name: 1.0 | "{{ inventory_hostname }}" | Configure interface Loopback
-  ios_config:
-    line:
-      - interface loopback {{ loop_number }}
-      - ip address {{ loop_ip }} {{ loop_mask }}
-    provider: "{{ provider }}"
-    authorize: yes
-#    src: "loopback_interface.j2"
+# - name: 1.0 | "{{ inventory_hostname }}" | Configure interface Loopback
+#   ios_config:
+#     line:
+#       - interface loopback {{ loop_number }}
+#       - ip address {{ loop_ip }} {{ loop_mask }}
+#     provider: "{{ provider }}"
+#     authorize: yes
+# #    src: "loopback_interface.j2"
 
 - name: 1.1 | IOS "{{ inventory_hostname }}" | Configure interface Ethernet0/1
   ios_config:
