@@ -1,5 +1,5 @@
-####################
-# Site de bordeaux #
-####################
+#############
+# OSPF Vars #
+#############
 ospf_process_number_bdx: 1
 
