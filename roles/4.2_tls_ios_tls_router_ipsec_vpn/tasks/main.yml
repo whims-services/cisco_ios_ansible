@@ -1,0 +1,25 @@
+- name: 4.0 | {{ inventory_hostname }} | Configure ISAKMP Policies
+  ios_config:
+    provider: "{{ provider_tls }}"
+    authorize: yes
+    src: "crypto_isakmp_policy_tls.j2"
+
+- name: 4.1 | {{ inventory_hostname }} | Configure ISAKMP keys
+  ios_config:
+    lines:
+      - crypto isakmp key {{crypto_isakmp_key_name_tls}} address {{crypto_isakmp_key_ip_tls}} {{crypto_isakmp_key_mask_tls}}
+    provider: "{{ provider_tls }}"
+    authorize: yes
+
+- name: 4.2 | {{ inventory_hostname }} | Configure ISAKMP Transform Set
+  ios_config:
+    lines:
+      - crypto ipsec transform-set {{crypto_isakmp_transform_set_tls}} esp-3des esp-sha-hmac
+    provider: "{{ provider_tls }}"
+    authorize: yes
+
+- name: 4.3 | {{ inventory_hostname }} | Configure ISAKMP IPsec
+  ios_config:
+    provider: "{{ provider_tls }}"
+    authorize: yes
+    src: "crypto_ipsec_tls.j2"

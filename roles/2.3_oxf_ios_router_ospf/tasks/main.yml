@@ -1,0 +1,8 @@
+#----------------------------------------------#
+# Configuration ospf pour le routeur de Oxford #
+#----------------------------------------------#
+- name: 2.0 | IOS {{ inventory_hostname }} | Configure OSPF
+  ios_config:
+    provider: "{{provider_oxf}}"
+    authorize: yes
+    src: "ospf_setting_oxf.j2"

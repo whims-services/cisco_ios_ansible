@@ -1,20 +1,20 @@
-#-------------------------------------------------------#
-# Configuration des interfaces pour le site de toulouse #
-#-------------------------------------------------------#
-- name: 1.3 | {{ inventory_hostname }} | Configure interface Loopback {{loop_number_tls}}
+#-----------------------------------------------------#
+# Configuration des interfaces pour le site de oxford #
+#-----------------------------------------------------#
+- name: 1.0 | {{ inventory_hostname }} | Configure interface Loopback {{loop_number_oxf}}
   ios_config:
-    provider: "{{provider_tls}}"
+    provider: "{{provider_oxf}}"
     authorize: yes
-    src: "loopback_interface_tls.j2"
+    src: "loopback_interface_oxf.j2"
 
-- name: 1.4 | IOS {{ inventory_hostname }} | Configure interface Ethernet{{eth_01_id_tls}}
+- name: 1.1 | IOS {{ inventory_hostname }} | Configure interface Ethernet{{eth_01_id_oxf}}
   ios_config:
-    provider: "{{provider_tls}}"
+    provider: "{{provider_oxf}}"
     authorize: yes
-    src: "eth_01_interface_tls.j2"
+    src: "eth_01_interface_oxf.j2"
 
-- name: 1.5 | IOS {{ inventory_hostname }} | Configure interface Ethernet{{eth_02_id_tls}}
+- name: 1.2 | IOS {{ inventory_hostname }} | Configure interface Ethernet{{eth_02_id_oxf}}
   ios_config:
-    provider: "{{provider_tls}}"
+    provider: "{{provider_oxf}}"
     authorize: yes
-    src: "eth_02_interface_tls.j2"
+    src: "eth_02_interface_oxf.j2"

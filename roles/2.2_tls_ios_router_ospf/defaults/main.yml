@@ -1,0 +1,5 @@
+#############
+# OSPF Vars #
+#############
+ospf_process_number_tls: 1
+

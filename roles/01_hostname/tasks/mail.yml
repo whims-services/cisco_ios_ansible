@@ -1,5 +1,0 @@
-- name: configure top level configuration
-  ios_config:
-    lines: hostname {{ inventory_hostname }}
-    provider: "{{provider_bdx}}"
-    authorize: yes

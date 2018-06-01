@@ -1,0 +1,8 @@
+#------------------------------------------------#
+# Configuration ospf pour le routeur de Toulouse #
+#------------------------------------------------#
+- name: 2.0 | IOS {{ inventory_hostname }} | Configure OSPF
+  ios_config:
+    provider: "{{provider_tls}}"
+    authorize: yes
+    src: "ospf_setting_tls.j2"
