@@ -19,3 +19,6 @@ mgmt_password_man: cisco
 # Loopback @ #
 #------------#
 loop_ip_bdx: 33.33.33.33
+loop_ip_bdx: 31.31.31.31
+loop_ip_bdx: 186.186.186.186
+loop_ip_bdx: 161.161.161.161

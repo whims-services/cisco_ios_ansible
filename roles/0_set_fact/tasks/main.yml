@@ -20,3 +20,6 @@
       username: "{{ mgmt_username_man }}"
       password: "{{ mgmt_password_man }}"
     loop_ip_bdx: "{{loop_ip_bdx}}"
+    loop_ip_tls: "{{loop_ip_tls}}"
+    loop_ip_oxf: "{{loop_ip_oxf}}"
+    loop_ip_man: "{{loop_ip_man}}"
