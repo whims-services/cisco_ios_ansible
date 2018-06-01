@@ -1,0 +1,9 @@
+vlan_id_1: 10
+vlan_id_2: 20
+vlan_id_3: 30
+vlan_id_4: 40
+
+vlan_name_1: LAN
+vlan_name_2: WIFI
+vlan_name_3: VOICE
+vlan_name_4: INTERCO

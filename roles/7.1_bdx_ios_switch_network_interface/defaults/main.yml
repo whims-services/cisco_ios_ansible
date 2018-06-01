@@ -1,0 +1,4 @@
+# Eth 0/1 interface #
+#-------------------#
+eth_01_id_bdx: 0/1
+eth_01_description_bdx: Use by interco

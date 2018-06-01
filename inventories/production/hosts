@@ -11,11 +11,15 @@ FR-OXF-RT-01
 FR-MAN-RT-01
 
 [ios_switch_bordeaux]
+FR-BDX-SW-01
 
 [ios_switch_toulouse]
+FR-TLS-SW-01
 
 [ios_switch_oxford]
+FR-OXF-SW-01
 
 [ios_switch_manchester]
+FR-MAN-SW-01
 
 

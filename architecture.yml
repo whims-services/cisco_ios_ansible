@@ -35,3 +35,27 @@
 #     - { role: 2.4_man_ios_router_ospf }
 #     - { role: 4.4_man_ios_router_ipsec_vpn }
 #     - { role: 5.4_man_ios_router_spoke_dmvpn}
+
+- hosts: ios_switch_bordeaux
+  connection: local
+  roles:
+    - { role: 0.1_bdx_set_fact }
+    - { role: 6.1_bdx_ios_switch_vlan }
+
+- hosts: ios_switch_toulouse
+  connection: local
+  roles:
+    - { role: 0.2_tls_set_fact }
+    - { role: 6.2_tls_ios_switch_vlan }
+
+- hosts: ios_switch_oxford
+  connection: local
+  roles:
+    - { role: 0.3_oxf_set_fact }
+    - { role: 6.3_oxf_ios_switch_vlan }
+
+- hosts: ios_switch_manchester
+  connection: local
+  roles:
+    - { role: 0.4_man_set_fact }
+    - { role: 6.4_man_ios_switch_vlan }
