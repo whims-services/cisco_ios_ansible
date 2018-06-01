@@ -1,0 +1,17 @@
+# Spoke Vars #
+#------------#
+interface_spoke_dmvpn: Tunnel1
+description_spoke_dmvpn: HOST DYNAMIC TUNNEL
+bandwidth_spoke_dmvpn: 1000
+ip_address_spoke_dmvpn_tls: 172.16.0.2
+ip_address_spoke_dmvpn_oxf: 172.16.0.3
+ip_address_spoke_dmvpn_mah: 172.16.0.4
+net_mask_spoke_dmvpn: 255.255.255.0
+nhrp_map_ip_spoke_dmvpn: 172.16.0.1
+nhrp_map_ip_multicast_spoke_dmvpn: 169.254.0.1
+nhrp_network_id_spoke_dmvpn: 99
+nhrp_holdtime_spoke_dmvpn: 300
+nhrp_nhs_ip_spoke_dmvpn: 172.16.0.1
+tunnel_source_spoke_dmvpn: e0/2
+tunnel_key_spoke_dmvpn: 100000
+tunnel_ipsec_profile__dmvpn: dmvpnprof

@@ -1,0 +1,20 @@
+interface {{interface_spoke_dmvpn}}
+ description {{description_spoke_dmvpn}}
+ bandwidth {{bandwidth_spoke_dmvpn}}
+ ip address {{ip_address_spoke_dmvpn_tls}} {{net_mask_spoke_dmvpn}}
+ no ip redirects
+ ip mtu 1416
+ ip nhrp authentication dmvpn
+ ip nhrp map multicast dynamic
+ ip nhrp map {{nhrp_map_ip_spoke_dmvpn}} {{nhrp_map_ip_multicast_spoke_dmvpn}}
+ ip nhrp map multicast {{nhrp_map_ip_multicast_spoke_dmvpn}}
+ ip nhrp network-id {{nhrp_network_id_spoke_dmvpn}}
+ ip nhrp holdtime {{nhrp_holdtime_spoke_dmvpn}}
+ ip nhrp nhs {{nhrp_nhs_ip_spoke_dmvpn}}
+ no ip route-cache
+ ip ospf network broadcast
+ delay 1000
+ tunnel source {{tunnel_source_spoke_dmvpn}}
+ tunnel mode gre multipoint
+ tunnel key {{tunnel_key_spoke_dmvpn}}
+ tunnel protection ipsec profile {{tunnel_ipsec_profile__dmvpn}}

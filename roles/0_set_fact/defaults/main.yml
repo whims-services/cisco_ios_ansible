@@ -6,6 +6,8 @@
 #-------------#
 mgmt_username_bdx: cisco
 mgmt_password_bdx: cisco
+mgmt_username_tls: cisco
+mgmt_password_tls: cisco
 
 # Loopback @ #
 #------------#
