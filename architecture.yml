@@ -6,7 +6,7 @@
     # - { role: 0.1_bdx_set_fact }
     # - { role: 1.1_bdx_ios_router_network_interfaces }
     # - { role: 2.1_bdx_ios_router_ospf }
-    # - { role: 3.1_ios_router_hub_dmvpn}
+    # - { role: 3_ios_router_hub_dmvpn}
     # - { role: 4.1_ios_router_ipsec_vpn}
 
 - hosts: ios_router_toulouse
