@@ -2,4 +2,5 @@
 # OSPF Vars #
 #############
 ospf_process_number_tls: 1
-
+ospf_interco_network_tls: 10.33.31.240
+ospf_dmvpn_network_ip: 172.16.0.0

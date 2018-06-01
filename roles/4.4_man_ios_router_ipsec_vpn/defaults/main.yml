@@ -1,0 +1,15 @@
+# Crypto_isakmp_policy Bordeaux
+crypto_isakmp_policy_number_bdx: 5
+authentication_type_crypto_isakmp_policy_bdx: pre-share
+group_number_crypto_isakmp_policy_bdx: 2
+
+# Crypto_isakmp_key Bordeaux
+crypto_isakmp_key_name_bdx: dmvpnkey
+crypto_isakmp_key_ip_bdx: 0.0.0.0
+crypto_isakmp_key_mask_bdx: 0.0.0.0
+
+# Crypto_isakmp_transform_set Bordeaux
+crypto_isakmp_transform_set_bdx: dmvpnset
+
+# Crypto_isakmp_profile Bordeaux
+crypto_ipsec_name_bdx: dmvpnprof
