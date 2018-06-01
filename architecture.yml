@@ -6,3 +6,4 @@
   roles:
     - { role: 0_ios_router_network_interfaces }
     - { role: 1_ios_router_osfp }
+    - { role: 2_ios_router_hub_dmvpn}

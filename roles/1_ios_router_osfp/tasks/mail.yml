@@ -11,7 +11,3 @@
     parents: router ospf 1
     authorize: yes
     #src: "ospf_setting_bdx.j2"
-
-- name: configure top level configuration
-  ios_config:
-    lines: hostname {{ inventory_hostname }}
