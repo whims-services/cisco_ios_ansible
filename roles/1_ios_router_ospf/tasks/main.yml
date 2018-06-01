@@ -13,3 +13,5 @@
     provider: "{{ provider }}"
     authorize: yes
     src: "ospf_setting_bdx.j2"
+    dependencies:
+  - { role: 0_router_network_interfaces, {{mgmt_username_bdx}}, {{mgmt_password_bdx}} }

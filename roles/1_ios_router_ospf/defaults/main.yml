@@ -4,8 +4,8 @@
 
 # Credentials #
 #-------------#
-mgmt_username_bdx: cisco
-mgmt_password_bdx: cisco
+# mgmt_username_bdx: cisco
+# mgmt_password_bdx: cisco
 
 # BDX Vars #
 #----------#
