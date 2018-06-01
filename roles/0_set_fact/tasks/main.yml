@@ -1,14 +1,13 @@
-#-------------------------------------------------------#
-# Configuration des interfaces pour le site de bordeaux #
-#-------------------------------------------------------#
+#-----------------------------------#
+# Definition des variables globales #
+#-----------------------------------#
 - name: 0.0 | SYS | Definition du provider
   set_fact:
-    provider:
+    provider_bdx:
       host: "{{ inventory_hostname }}"
       username: "{{ mgmt_username_bdx }}"
       password: "{{ mgmt_password_bdx }}"
-    loop_ip_bdx: "{{loop_ip_bdx}}"
-    
+    loop_ip_bdx: "{{loop_ip_dbx}}"
   # vars:
   #   mgmt_username_bdx: "{{ vault_mgmt_username }}"
   #   mgmt_password_bdx: "{{ vault_mgmt_password }}"

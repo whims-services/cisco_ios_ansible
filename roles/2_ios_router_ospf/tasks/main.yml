@@ -3,6 +3,6 @@
 #------------------------------------------------#
 - name: 1.5 | IOS {{ inventory_hostname }} | Configure OSPF
   ios_config:
-    provider: "{{provider}}"
+    provider: "{{provider_bdx}}"
     authorize: yes
     src: "ospf_setting_bdx.j2"

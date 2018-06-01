@@ -13,18 +13,18 @@
 
 - name: 1.0 | {{ inventory_hostname }} | Configure interface Loopback {{loop_number_bdx}}
   ios_config:
-    provider: "{{ provider }}"
+    provider: "{{provider_bdx}}"
     authorize: yes
     src: "loopback_interface_bdx.j2"
 
 - name: 1.1 | IOS {{ inventory_hostname }} | Configure interface Ethernet{{eth_01_id_bdx}}
   ios_config:
-    provider: "{{ provider }}"
+    provider: "{{provider_bdx}}"
     authorize: yes
     src: "eth_01_interface_bdx.j2"
 
 - name: 1.2 | IOS {{ inventory_hostname }} | Configure interface Ethernet{{eth_02_id_bdx}}
   ios_config:
-    provider: "{{ provider }}"
+    provider: "{{provider_bdx}}"
     authorize: yes
     src: "eth_02_interface_bdx.j2"
