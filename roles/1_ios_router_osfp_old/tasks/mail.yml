@@ -1,13 +1,16 @@
 #------------------------------------------------#
 # Configuration ospf pour le routeur de bordeaux #
 #------------------------------------------------#
+- name: 0.0 | SYS | Definition du provider
+  set_fact:
+    provider:
+      host: "{{ inventory_hostname }}"
+      username: "{{ mgmt_username_bdx }}"
+      password: "{{ mgmt_password_bdx }}"
+
 - name: 1.5 | IOS {{ inventory_hostname }} | Configure OSPF
-  ios_command:
-    lines:
-      - network 33.33.33.33 0.0.0.0 area 0
-      - network 10.44.186.240 0.0.0.15 area 0
-      - network 172.16.0.0 0.0.0.255 area 0
+  ios_config:
     provider: "{{ provider }}"
     parents: router ospf 1
     authorize: yes
-    #src: "ospf_setting_bdx.j2"
+    src: "ospf_setting_bdx.j2"
