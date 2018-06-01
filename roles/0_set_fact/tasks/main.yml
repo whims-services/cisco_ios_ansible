@@ -8,8 +8,6 @@
       username: "{{ mgmt_username_bdx }}"
       password: "{{ mgmt_password_bdx }}"
     loopback_ip_bdx: "{{loop_ip_dbx}}"
-  - debug:
-      msg: "Variable : {{loopback_ip_dbx}}"
   # vars:
   #   mgmt_username_bdx: "{{ vault_mgmt_username }}"
   #   mgmt_password_bdx: "{{ vault_mgmt_password }}"
