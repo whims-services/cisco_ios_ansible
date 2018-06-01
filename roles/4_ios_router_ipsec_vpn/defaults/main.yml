@@ -13,5 +13,3 @@ crypto_isakmp_transform_set_bdx: dmvpnset
 
 # Crypto_isakmp_profile Bordeaux
 crypto_ipsec_name_bdx: dmvpnprof
-crypto ipsec profile {{crypto_ipsec_name_bdx}}
- set transform-set {{crypto_isakmp_transform_set_bdx}}
