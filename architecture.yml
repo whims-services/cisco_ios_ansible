@@ -4,6 +4,6 @@
   #gather_facts: no
   connection: local
   roles:
-   # - { role: 0_ios_router_network_interfaces }
+    - { role: 0_ios_router_network_interfaces }
     - { role: 1_ios_router_ospf }
     - { role: 2_ios_router_hub_dmvpn}
