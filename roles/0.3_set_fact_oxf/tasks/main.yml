@@ -1,0 +1,10 @@
+#-----------------------------------#
+# Definition des variables globales #
+#-----------------------------------#
+- name: 0.0 | SYS | Definition du provider Oxford
+  set_fact:
+    provider_oxf:
+      host: "{{ inventory_hostname }}"
+      username: "{{ mgmt_username_oxf }}"
+      password: "{{ mgmt_password_oxf }}"
+    loop_ip_oxf: "{{loop_ip_oxf}}"

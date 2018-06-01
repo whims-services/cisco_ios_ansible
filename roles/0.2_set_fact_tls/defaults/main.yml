@@ -1,0 +1,12 @@
+####################
+# Site de Toulouse #
+####################
+
+# Credentials #
+#-------------#
+mgmt_username_tls: cisco
+mgmt_password_tls: cisco
+
+# Loopback @ #
+#------------#
+loop_ip_tls: 31.31.31.31

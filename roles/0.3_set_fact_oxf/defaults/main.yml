@@ -1,0 +1,12 @@
+##################
+# Site de Oxford #
+##################
+
+# Credentials #
+#-------------#
+mgmt_username_oxf: cisco
+mgmt_password_oxf: cisco
+
+# Loopback @ #
+#------------#
+loop_ip_oxf: 186.186.186.186

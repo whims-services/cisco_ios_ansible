@@ -1,0 +1,12 @@
+######################
+# Site de Manchester #
+######################
+
+# Credentials #
+#-------------#
+mgmt_username_man: cisco
+mgmt_password_man: cisco
+
+# Loopback @ #
+#------------#
+loop_ip_man: 161.161.161.161
