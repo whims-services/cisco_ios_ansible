@@ -7,5 +7,5 @@
    # - { role: 1_ios_router_network_interfaces }
    # - { role: 2_ios_router_ospf }
    # - { role: 3_ios_router_hub_dmvpn}
-    - { role: 4_ios_router_ipsec_vpn}
-   # - { role: 5_ios_router_spoke_dmvpn}
+   # - { role: 4_ios_router_ipsec_vpn}
+    - { role: 5_ios_router_spoke_dmvpn}
