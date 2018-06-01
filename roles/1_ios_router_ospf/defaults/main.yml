@@ -1,14 +1,5 @@
 ####################
 # Site de bordeaux #
 ####################
-
-# Credentials #
-#-------------#
-# mgmt_username_bdx: cisco
-# mgmt_password_bdx: cisco
-
-# BDX Vars #
-#----------#
 ospf_process_number_bdx: 1
-loop_ip_bdx: 33.33.33.33
 

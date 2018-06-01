@@ -1,13 +1,6 @@
 #------------------------------------------------#
 # Configuration ospf pour le routeur de bordeaux #
 #------------------------------------------------#
-# - name: SYS | Definition du provider
-#   set_fact:
-#     provider:
-#       host: "{{ inventory_hostname }}"
-#       username: "{{ mgmt_username_bdx }}"
-#       password: "{{ mgmt_password_bdx }}"
-
 - name: 1.5 | IOS {{ inventory_hostname }} | Configure OSPF
   ios_config:
     provider: "{{provider}}"
