@@ -1,7 +1,7 @@
 #------------------------------------------------#
 # Configuration ospf pour le routeur de bordeaux #
 #------------------------------------------------#
-- name: 1.5 | IOS {{ inventory_hostname }} | Configure OSPF
+- name: 2.0 | IOS {{ inventory_hostname }} | Configure OSPF
   ios_config:
     provider: "{{provider_bdx}}"
     authorize: yes

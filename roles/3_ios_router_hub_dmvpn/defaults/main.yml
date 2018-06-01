@@ -2,6 +2,11 @@
 # Site de bordeaux #
 ####################
 
+# Credentials #
+#-------------#
+# mgmt_username_bdx: cisco
+# mgmt_password_bdx: cisco
+
 # Loopback int #
 #--------------#
 loop_ip_bdx: 33.33.33.33
