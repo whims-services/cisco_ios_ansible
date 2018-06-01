@@ -1,2 +1,11 @@
-# Loopback int #
-#--------------#
+# HUB Vars #
+#----------#
+interface_hub_dmvpn_bdx: Tunnel1
+description_hub_dmvpn_bdx: MULTI-POINT GRE TUNNEL for BRANCHES
+bandwidth_hub_dmvpn_bdx: 1000
+ip_address_hub_dmvpn_bdx: 172.16.0.1
+net_mask_hub_dmvpn_bdx: 255.255.255.0
+priority_hub_dmvpn_bdx: 255
+tunnel_source_hub_dmvpn_bdx: e0/2
+tunnel_key_hub_dmvpn_bdx: 100000
+tunnel_ipsec_profile_hub_dmvpn_bdx: dmvpnprof
