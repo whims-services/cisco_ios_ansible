@@ -2,5 +2,5 @@
 # OSPF Vars #
 #############
 ospf_process_number_bdx: 1
-ospf_interco_network_bdx: 10.44.186.240
+ospf_interco_network_bdx: 10.33.33.240
 ospf_dmvpn_network_ip: 172.16.0.0

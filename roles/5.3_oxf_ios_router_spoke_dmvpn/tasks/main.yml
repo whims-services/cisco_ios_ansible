@@ -1,20 +1,6 @@
-# Configuration Spoke DMVPN Toulouse
+# Configuration Spoke DMVPN Oxford
 - name: 5.0 | {{ inventory_hostname }} | Configure Spoke DMVPN
   ios_config:
-    provider: "{{ provider_tls }}"
+    provider: "{{ provider_ofx }}"
     authorize: yes
-    src: "conf_spoke_dmvpn_tls.j2"
-
-# Configuration Spoke DMVPN Oxford
-# - name: 5.0 | {{ inventory_hostname }} | Configure Spoke DMVPN
-#   ios_config:
-#     provider: "{{ provider_oxf }}"
-#     authorize: yes
-#     src: "crypto_isakmp_policy_oxf.j2"
-
-# # Configuration Spoke DMVPN Manchester
-# - name: 5.0 | {{ inventory_hostname }} | Configure Spoke DMVPN
-#   ios_config:
-#     provider: "{{ provider_man }}"
-#     authorize: yes
-#     src: "crypto_isakmp_policy_man.j2"
+    src: "conf_spoke_dmvpn_ofx.j2"

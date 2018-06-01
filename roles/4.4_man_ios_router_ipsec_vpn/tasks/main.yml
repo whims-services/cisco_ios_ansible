@@ -1,25 +1,25 @@
 - name: 4.0 | {{ inventory_hostname }} | Configure ISAKMP Policies
   ios_config:
-    provider: "{{ provider_bdx }}"
+    provider: "{{ provider_man }}"
     authorize: yes
-    src: "crypto_isakmp_policy_bdx.j2"
+    src: "crypto_isakmp_policy_man.j2"
 
 - name: 4.1 | {{ inventory_hostname }} | Configure ISAKMP keys
   ios_config:
     lines:
-      - crypto isakmp key {{crypto_isakmp_key_name_bdx}} address {{crypto_isakmp_key_ip_bdx}} {{crypto_isakmp_key_mask_bdx}}
-    provider: "{{ provider_bdx }}"
+      - crypto isakmp key {{crypto_isakmp_key_name_man}} address {{crypto_isakmp_key_ip_man}} {{crypto_isakmp_key_mask_man}}
+    provider: "{{ provider_man }}"
     authorize: yes
 
 - name: 4.2 | {{ inventory_hostname }} | Configure ISAKMP Transform Set
   ios_config:
     lines:
-      - crypto ipsec transform-set {{crypto_isakmp_transform_set_bdx}} esp-3des esp-sha-hmac
-    provider: "{{ provider_bdx }}"
+      - crypto ipsec transform-set {{crypto_isakmp_transform_set_man}} esp-3des esp-sha-hmac
+    provider: "{{ provider_man }}"
     authorize: yes
 
 - name: 4.3 | {{ inventory_hostname }} | Configure ISAKMP IPsec
   ios_config:
-    provider: "{{ provider_bdx }}"
+    provider: "{{ provider_man }}"
     authorize: yes
-    src: "crypto_ipsec_bdx.j2"
+    src: "crypto_ipsec_man.j2"

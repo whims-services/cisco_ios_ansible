@@ -15,16 +15,17 @@
     - { role: 0.2_tls_set_fact }
     - { role: 1.2_tls_ios_router_network_interfaces }
     - { role: 2.2_tls_ios_router_ospf }
+    - { role: 4.2_tls_ios_router_ipsec_vpn }
     - { role: 5.2_ios_router_spoke_dmvpn}
 
-- hosts: ios_router_oxford
-  connection: local
-  roles:
-    - { role: 0.3_oxf_set_fact }
-    - { role: 1.4_tls_ios_router_network_interfaces }
+# - hosts: ios_router_oxford
+#   connection: local
+#   roles:
+#     - { role: 0.3_oxf_set_fact }
+#     - { role: 1.4_tls_ios_router_network_interfaces }
 
-- hosts: ios_router_manchester
-  connection: local
-  roles:
-    - { role: 0.4_man_set_fact }
-    - { role: 1.4_tls_ios_router_network_interfaces }
+# - hosts: ios_router_manchester
+#   connection: local
+#   roles:
+#     - { role: 0.4_man_set_fact }
+#     - { role: 1.4_tls_ios_router_network_interfaces }
