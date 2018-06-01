@@ -2,10 +2,13 @@
 FR-BDX-RT-01
 
 [ios_router_toulouse]
+FR-TLS-RT-01
 
 [ios_router_oxford]
+FR-OXF-RT-01
 
 [ios_router_manchester]
+FR-MAN-RT-01
 
 [ios_switch_bordeaux]
 
