@@ -7,7 +7,16 @@
       host: "{{ inventory_hostname }}"
       username: "{{ mgmt_username_bdx }}"
       password: "{{ mgmt_password_bdx }}"
+    provider_tls:
+      host: "{{ inventory_hostname }}"
+      username: "{{ mgmt_username_tls }}"
+      password: "{{ mgmt_password_tls }}"
+    provider_oxf:
+      host: "{{ inventory_hostname }}"
+      username: "{{ mgmt_username_oxf }}"
+      password: "{{ mgmt_password_oxf }}"
+    provider_man:
+      host: "{{ inventory_hostname }}"
+      username: "{{ mgmt_username_man }}"
+      password: "{{ mgmt_password_man }}"
     loop_ip_bdx: "{{loop_ip_bdx}}"
-  # vars:
-  #   mgmt_username_bdx: "{{ vault_mgmt_username }}"
-  #   mgmt_password_bdx: "{{ vault_mgmt_password }}"
