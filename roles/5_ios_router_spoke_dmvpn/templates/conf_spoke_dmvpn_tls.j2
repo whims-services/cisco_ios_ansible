@@ -6,8 +6,8 @@ interface {{interface_spoke_dmvpn}}
  ip mtu 1416
  ip nhrp authentication dmvpn
  ip nhrp map multicast dynamic
- ip nhrp map {{nhrp_map_ip_spoke_dmvpn}} {{nhrp_map_ip_multicast_spoke_dmvpn_tls}}
- ip nhrp map multicast {{nhrp_map_ip_multicast_spoke_dmvpn_tls}}
+ ip nhrp map {{nhrp_map_ip_spoke_dmvpn}} {{nhrp_map_ip_multicast_spoke_dmvpn_bdx}}
+ ip nhrp map multicast {{nhrp_map_ip_multicast_spoke_dmvpn_bdx}}
  ip nhrp network-id {{nhrp_network_id_spoke_dmvpn}}
  ip nhrp holdtime {{nhrp_holdtime_spoke_dmvpn}}
  ip nhrp nhs {{nhrp_nhs_ip_spoke_dmvpn}}

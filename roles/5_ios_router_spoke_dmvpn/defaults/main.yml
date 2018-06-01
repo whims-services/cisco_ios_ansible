@@ -9,9 +9,6 @@ ip_address_spoke_dmvpn_mah: 172.16.0.4
 net_mask_spoke_dmvpn: 255.255.255.0
 nhrp_map_ip_spoke_dmvpn: 172.16.0.1
 nhrp_map_ip_multicast_spoke_dmvpn_bdx: 169.254.0.1
-nhrp_map_ip_multicast_spoke_dmvpn_tls: 169.254.0.2
-nhrp_map_ip_multicast_spoke_dmvpn_oxf: 169.254.0.3
-nhrp_map_ip_multicast_spoke_dmvpn_man: 169.254.0.4
 nhrp_network_id_spoke_dmvpn: 99
 nhrp_holdtime_spoke_dmvpn: 300
 nhrp_nhs_ip_spoke_dmvpn: 172.16.0.1
