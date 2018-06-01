@@ -9,7 +9,7 @@
       set_fact:
         provider:
           host: "{{ inventory_hostname }}"
-          username: "{{ mgmt_username }}"
+          username: "cisco"
           password: "{{ mgmt_password }}"
       vars:
         mgmt_username: "{{ vault_mgmt_username }}"

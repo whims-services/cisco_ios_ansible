@@ -4,9 +4,9 @@
 - name: 1.5 | IOS {{ inventory_hostname }} | Configure OSPF
   ios_config:
     lines:
-      network 7.7.7.7 0.0.0.0 area 0
-      network 10.44.186.240 0.0.0.15 area 0
-      network 172.16.0.0 0.0.0.255 area 0
+      - network 7.7.7.7 0.0.0.0 area 0
+      - network 10.44.186.240 0.0.0.15 area 0
+      - network 172.16.0.0 0.0.0.255 area 0
     provider: "{{ provider }}"
     parents: router ospf 1
     authorize: yes
