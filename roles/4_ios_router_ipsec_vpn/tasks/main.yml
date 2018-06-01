@@ -14,7 +14,7 @@
 - name: 4.2 | {{ inventory_hostname }} | Configure ISAKMP Transform Set
   ios_config:
     line:
-      - crypto ipsec transform-set {{crypto_isakmp_transform-set_bdx}} esp-3des esp-sha-hmac
+      - crypto ipsec transform-set {{crypto_isakmp_transform_set_bdx}} esp-3des esp-sha-hmac
     provider: "{{ provider_bdx }}"
     authorize: yes
 
