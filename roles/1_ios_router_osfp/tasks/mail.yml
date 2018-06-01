@@ -2,9 +2,9 @@
 # Configuration ospf pour le routeur de bordeaux #
 #------------------------------------------------#
 - name: 1.5 | IOS {{ inventory_hostname }} | Configure OSPF
-  ios_config:
+  ios_command:
     lines:
-      - network 7.7.7.7 0.0.0.0 area 0
+      - network 33.33.33.33 0.0.0.0 area 0
       - network 10.44.186.240 0.0.0.15 area 0
       - network 172.16.0.0 0.0.0.255 area 0
     provider: "{{ provider }}"
