@@ -1,0 +1,6 @@
+# Configuration Spoke DMVPN Toulouse
+- name: 5.0 | {{ inventory_hostname }} | Configure Spoke DMVPN
+  ios_config:
+    provider: "{{ provider_tls }}"
+    authorize: yes
+    src: "conf_spoke_dmvpn_tls.j2"

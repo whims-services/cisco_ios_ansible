@@ -3,9 +3,7 @@
 interface_spoke_dmvpn: Tunnel1
 description_spoke_dmvpn: HOST DYNAMIC TUNNEL
 bandwidth_spoke_dmvpn: 1000
-ip_address_spoke_dmvpn_tls: 172.16.0.2
-ip_address_spoke_dmvpn_oxf: 172.16.0.3
-ip_address_spoke_dmvpn_mah: 172.16.0.4
+ip_address_spoke_dmvpn_man: 172.16.0.4
 net_mask_spoke_dmvpn: 255.255.255.0
 nhrp_map_ip_spoke_dmvpn: 172.16.0.1
 nhrp_map_ip_multicast_spoke_dmvpn_bdx: 169.254.0.1
