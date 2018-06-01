@@ -21,4 +21,5 @@
 - name: 4.3 | {{ inventory_hostname }} | Configure ISAKMP IPsec
   ios_config:
     provider: "{{ provider_bdx }}"
+    authorize: yes
     src: "crypto_ipsec_bdx.j2"
