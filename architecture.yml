@@ -16,3 +16,8 @@
   connection: local
   roles:
      - { role: router_spoke_dmvpn }
+
+- hosts: switch
+  connection: local
+  roles:
+    - { role: switch_vlan }
