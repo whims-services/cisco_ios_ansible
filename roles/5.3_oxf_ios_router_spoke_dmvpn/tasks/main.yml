@@ -1,6 +1,0 @@
-# Configuration Spoke DMVPN Oxford
-- name: 5.0 | {{ inventory_hostname }} | Configure Spoke DMVPN
-  ios_config:
-    provider: "{{ provider_ofx }}"
-    authorize: yes
-    src: "conf_spoke_dmvpn_ofx.j2"

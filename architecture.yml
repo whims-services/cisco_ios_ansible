@@ -1,61 +1,18 @@
 # Configuration ccnp
 ---
-- hosts: ios_router_bordeaux
+- hosts: router
   connection: local
   roles:
-    # - { role: 0.1_bdx_set_fact }
-    # - { role: 1.1_bdx_ios_router_network_interfaces }
-    # - { role: 2.1_bdx_ios_router_ospf }
-    # - { role: 3_ios_router_hub_dmvpn}
-    # - { role: 4.1_ios_router_ipsec_vpn}
+     - { role: router_network_interfaces }
+     - { role: router_ospf }
+     - { role: router_ipsec_vpn }
 
-- hosts: ios_router_toulouse
+- hosts: DMVPN_HUB
   connection: local
   roles:
-    - { role: 0.2_tls_set_fact }
-    - { role: 1.2_tls_ios_router_network_interfaces }
-    - { role: 2.2_tls_ios_router_ospf }
-    - { role: 4.2_tls_ios_router_ipsec_vpn }
-    - { role: 5.2_tls_ios_router_spoke_dmvpn}
+     - { role: router_hub_dmvpn }
 
-# - hosts: ios_router_oxford
-#   connection: local
-#   roles:
-#     - { role: 0.3_oxf_set_fact }
-#     - { role: 1.3_oxf_ios_router_network_interfaces }
-#     - { role: 2.3_oxf_ios_router_ospf }
-#     - { role: 4.3_oxf_ios_router_ipsec_vpn }
-#     - { role: 5.3_oxf_ios_router_spoke_dmvpn}
-
-# - hosts: ios_router_manchester
-#   connection: local
-#   roles:
-#     - { role: 0.4_man_set_fact }
-#     - { role: 1.4_man_ios_router_network_interfaces }
-#     - { role: 2.4_man_ios_router_ospf }
-#     - { role: 4.4_man_ios_router_ipsec_vpn }
-#     - { role: 5.4_man_ios_router_spoke_dmvpn}
-
-- hosts: ios_switch_bordeaux
+- hosts: DMVPN_SPOKE
   connection: local
   roles:
-    - { role: 0.1_bdx_set_fact }
-    - { role: 6.1_bdx_ios_switch_vlan }
-
-- hosts: ios_switch_toulouse
-  connection: local
-  roles:
-    - { role: 0.2_tls_set_fact }
-    - { role: 6.2_tls_ios_switch_vlan }
-
-- hosts: ios_switch_oxford
-  connection: local
-  roles:
-    - { role: 0.3_oxf_set_fact }
-    - { role: 6.3_oxf_ios_switch_vlan }
-
-- hosts: ios_switch_manchester
-  connection: local
-  roles:
-    - { role: 0.4_man_set_fact }
-    - { role: 6.4_man_ios_switch_vlan }
+     - { role: router_spoke_dmvpn }

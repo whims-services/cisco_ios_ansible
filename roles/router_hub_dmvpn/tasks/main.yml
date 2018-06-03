@@ -1,0 +1,5 @@
+- name: 3.0 | Configure HUB DMVPN
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "hub_dmvpn_setting.j2"

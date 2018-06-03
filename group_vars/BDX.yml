@@ -1,0 +1,20 @@
+# Interface @ #
+#-------------#
+loop_ip: 33.33.33.33
+
+eth_01_ip_region: 33
+
+eth_02_ip: 170.254.0.1
+
+# HUB DMVPN @ #
+#-------------#
+interface_hub_dmvpn: Tunnel1
+description_hub_dmvpn: MULTI-POINT GRE TUNNEL for BRANCHES
+bandwidth_hub_dmvpn: 1000
+ip_hub_dmvpn: 172.16.0.1
+net_mask_hub_dmvpn: 255.255.255.0
+priority_hub_dmvpn: 255
+tunnel_source_hub_dmvpn: e0/2
+tunnel_key_hub_dmvpn:  100000
+tunnel_ipsec_profile_hub_dmvpn: dmvpnprof
+

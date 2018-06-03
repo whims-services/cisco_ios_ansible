@@ -1,0 +1,9 @@
+# Loopback @ #
+#------------#
+loop_ip: 161.161.161.161
+
+eth_01_ip_region: 161
+
+eth_02_ip: 170.254.0.4
+
+ip_spoke_dmvpn: 172.16.0.4

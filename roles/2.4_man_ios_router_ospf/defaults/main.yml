@@ -1,7 +1,0 @@
-#############
-# OSPF Vars #
-#############
-ospf_process_number_man: 1
-ospf_interco_network_man: 10.44.161.240
-ospf_dmvpn_network_ip: 172.16.0.0
-

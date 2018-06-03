@@ -1,5 +1,0 @@
-- name: 3.0 | {{ inventory_hostname }} | Configure HUB DMVPN
-  ios_config:
-    provider: "{{provider_bdx}}"
-    authorize: yes
-    src: "hub_dmvpn_bdx.j2"

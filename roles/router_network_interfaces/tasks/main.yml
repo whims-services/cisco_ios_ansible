@@ -1,0 +1,17 @@
+- name: 1.0 | Configure interface Loopback {{ loop_number }}
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "loopback_interface.j2"
+
+- name: 1.1 | Configure interface Ethernet{{ eth_01_id }}
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "eth_01_interface.j2"
+
+- name: 1.2 | Configure interface Ethernet{{ eth_02_id }}
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "eth_02_interface.j2"

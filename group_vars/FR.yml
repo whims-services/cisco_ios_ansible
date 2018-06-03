@@ -1,0 +1,2 @@
+eth_01_ip: 10.33.{{eth_01_ip_region}}.241
+ospf_interco_network: 10.33.{{eth_01_ip_region}}.240

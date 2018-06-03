@@ -1,0 +1,5 @@
+- name: 3.0 | Configure SPOKE DMVPN
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "soke_dmvpn.j2"

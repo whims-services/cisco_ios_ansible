@@ -1,0 +1,17 @@
+- name: 4.0 | Configure crypto policy
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "crypto_isakmp_policy.j2"
+
+- name: 4.1 | Configure crypto transform
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "crypto_isakmp_transform_set.j2"
+
+- name: 4.2 | Configure crypto ipsec
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "crypto_ipsec.j2"
