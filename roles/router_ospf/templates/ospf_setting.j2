@@ -1,4 +1,4 @@
 router ospf {{ ospf_process_number }}
  network {{ loop_ip }} {{ ospf_loop_imask }} area 0
- network {{ ospf_interco_network }} {{ ospf_interco_imask }} area 0
+ network {{ ospf_vlan_4_network }} {{ ospf_interco_imask }} area 0
  network {{ ospf_dmvpn_network }} {{ ospf_dmvpn_imask }} area 0

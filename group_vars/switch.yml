@@ -1,0 +1,10 @@
+# Credentials #
+#-------------#
+mgmt_username: cisco
+mgmt_password: cisco
+
+ospf_process_number: 1
+eth_01_description: Use by interco
+
+
+eth_01_id: 0/1

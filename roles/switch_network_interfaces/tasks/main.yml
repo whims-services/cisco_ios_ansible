@@ -1,0 +1,29 @@
+- name: 3.0 | Configure interface Ethernet0/1
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "eth_01_interface.j2"
+
+- name: 3.1 | Configure interface vlan{{ vlan_1_id }}
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "eth_vlan_1.j2"
+
+- name: 3.2 | Configure interface vlan{{ vlan_2_id }}
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "eth_vlan_2.j2"
+
+- name: 3.3 | Configure interface vlan{{ vlan_3_id }}
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "eth_vlan_3.j2"
+
+- name: 3.4 | Configure interface vlan{{ vlan_4_id }}
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "eth_vlan_4.j2"

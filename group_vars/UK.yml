@@ -1,2 +1,9 @@
-eth_01_ip: 10.44.{{eth_01_ip_region}}.241
-ospf_interco_network: 10.44.{{eth_01_ip_region}}.240
+ospf_vlan_1_network: 10.44.{{ip_region}}.0
+ospf_vlan_2_network: 10.44.{{ip_region}}.128
+ospf_vlan_3_network: 10.44.{{ip_region}}.160
+ospf_vlan_4_network: 10.44.{{ip_region}}.240
+
+eth_vlan_1_ip: 10.44.{{ip_region}}.1
+eth_vlan_2_ip: 10.44.{{ip_region}}.129
+eth_vlan_3_ip: 10.44.{{ip_region}}.161
+eth_vlan_4_ip: 10.44.{{ip_region}}.242

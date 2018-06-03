@@ -1,0 +1,4 @@
+eth_02_ip: 170.254.0.2
+eth_01_ip: 10.33.{{ip_region}}.241
+
+ip_spoke_dmvpn: 172.16.0.2

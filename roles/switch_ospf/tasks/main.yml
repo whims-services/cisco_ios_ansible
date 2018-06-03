@@ -1,0 +1,5 @@
+- name: 2.0 | Configure OSPF
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "ospf_setting.j2"

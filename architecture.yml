@@ -21,3 +21,5 @@
   connection: local
   roles:
     - { role: switch_vlan }
+    - { role: switch_ospf }
+    - { role: switch_network_interfaces }

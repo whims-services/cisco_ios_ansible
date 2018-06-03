@@ -17,3 +17,12 @@ provider:
   username: "{{ mgmt_username }}"
   password: "{{ mgmt_password }}"
 
+ospf_vlan_1_imask: 0.0.0.127
+ospf_vlan_2_imask: 0.0.0.31
+ospf_vlan_3_imask: 0.0.0.31
+ospf_vlan_4_imask: 0.0.0.15
+
+eth_vlan_1_mask: 255.255.255.128
+eth_vlan_2_mask: 255.255.255.224
+eth_vlan_3_mask: 255.255.255.224
+eth_vlan_4_mask: 255.255.255.240
