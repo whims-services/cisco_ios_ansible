@@ -29,3 +29,10 @@
     state: present
     provider: "{{ provider }}"
     authorize: yes
+
+#vtp mode transparent
+- name: 1.4 | vtp mode
+  ios_config:
+    provider: "{{ provider }}"
+    authorize: yes
+    src: "vtp.j2"
